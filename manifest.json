@@ -1,0 +1,17 @@
+{
+  "name": "GKBR Platform",
+  "short_name": "GKBR",
+  "description": "Премиальная платформа корпоративного обучения с системой мотивации",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#1e3a8a",
+  "scope": "/",
+  "lang": "ru",
+  "categories": ["education", "business", "productivity"],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}

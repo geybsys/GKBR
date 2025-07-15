@@ -1,0 +1,390 @@
+/* crossbrowser.css - Поддержка старых браузеров и кроссбраузерность */
+/* Путь: src/styles/crossbrowser.css */
+
+/* 🌐 BROWSER RESET ДЛЯ КОНСИСТЕНТНОСТИ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 🔧 FALLBACK'И ДЛЯ CSS GRID */
+.grid-fallback {
+  display: block; /* Fallback для старых браузеров */
+  display: grid; /* Modern browsers */
+}
+
+.grid-fallback > * {
+  float: left; /* IE fallback */
+  width: 33.33%; /* IE fallback */
+}
+
+/* Современные браузеры переопределяют */
+@supports (display: grid) {
+  .grid-fallback > * {
+    float: none;
+    width: auto;
+  }
+}
+
+/* 🔧 FALLBACK'И ДЛЯ FLEXBOX */
+.flex-fallback {
+  display: block; /* IE8-9 fallback */
+  display: -webkit-box; /* iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex; /* Safari 6.1+ */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex; /* Modern browsers */
+}
+
+.flex-fallback > * {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+/* 🎨 FALLBACK'И ДЛЯ CSS CUSTOM PROPERTIES */
+.color-fallback {
+  /* Fallback цвета для старых браузеров */
+  color: #3b82f6; /* Fallback */
+  color: var(--color-primary-500, #3b82f6); /* Modern */
+  
+  background-color: #ffffff; /* Fallback */
+  background-color: var(--color-white, #ffffff); /* Modern */
+}
+
+/* 🌈 FALLBACK'И ДЛЯ ГРАДИЕНТОВ */
+.gradient-fallback {
+  /* Solid color fallback */
+  background-color: #3b82f6;
+  
+  /* Webkit gradients */
+  background: -webkit-gradient(linear, left top, right top, from(#3b82f6), to(#2563eb));
+  background: -webkit-linear-gradient(left, #3b82f6 0%, #2563eb 100%);
+  
+  /* Mozilla gradients */
+  background: -moz-linear-gradient(left, #3b82f6 0%, #2563eb 100%);
+  
+  /* IE10+ gradients */
+  background: -ms-linear-gradient(left, #3b82f6 0%, #2563eb 100%);
+  
+  /* Modern gradients */
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  
+  /* IE9 fallback */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b82f6', endColorstr='#2563eb', GradientType=1);
+}
+
+/* 🔧 FALLBACK'И ДЛЯ TRANSFORM */
+.transform-fallback {
+  /* IE9 fallback */
+  -ms-transform: scale(1.05);
+  
+  /* Webkit */
+  -webkit-transform: scale(1.05);
+  
+  /* Mozilla */
+  -moz-transform: scale(1.05);
+  
+  /* Modern */
+  transform: scale(1.05);
+}
+
+/* 🎭 FALLBACK'И ДЛЯ TRANSITION */
+.transition-fallback {
+  /* Webkit */
+  -webkit-transition: all 0.3s ease;
+  
+  /* Mozilla */
+  -moz-transition: all 0.3s ease;
+  
+  /* IE10+ */
+  -ms-transition: all 0.3s ease;
+  
+  /* Modern */
+  transition: all 0.3s ease;
+}
+
+/* 🔄 FALLBACK'И ДЛЯ ANIMATION */
+.animation-fallback {
+  /* Webkit */
+  -webkit-animation: fadeIn 0.3s ease-out;
+  
+  /* Mozilla */
+  -moz-animation: fadeIn 0.3s ease-out;
+  
+  /* Modern */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 📐 FALLBACK'И ДЛЯ BORDER-RADIUS */
+.rounded-fallback {
+  /* Webkit */
+  -webkit-border-radius: 0.5rem;
+  
+  /* Mozilla */
+  -moz-border-radius: 0.5rem;
+  
+  /* Modern */
+  border-radius: 0.5rem;
+}
+
+/* 🌫️ FALLBACK'И ДЛЯ BOX-SHADOW */
+.shadow-fallback {
+  /* IE9 fallback - использовать border */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  
+  /* Webkit */
+  -webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  /* Mozilla */
+  -moz-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  /* Modern */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Убираем border в современных браузерах */
+@supports (box-shadow: 0 0 0 transparent) {
+  .shadow-fallback {
+    border: none;
+  }
+}
+
+/* 🎯 INTERNET EXPLORER СПЕЦИФИКА */
+
+/* IE11 и Edge */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ie-flex-fix {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+  }
+  
+  .ie-grid-fix {
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: auto;
+  }
+  
+  .ie-transform-fix {
+    -ms-transform-origin: center center;
+  }
+}
+
+/* IE10 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  \9 .ie10-only {
+    display: block;
+  }
+}
+
+/* 🦊 FIREFOX СПЕЦИФИКА */
+@-moz-document url-prefix() {
+  .firefox-only {
+    display: block;
+  }
+  
+  /* Firefox scrollbar styling */
+  .firefox-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+  }
+}
+
+/* 🍎 SAFARI СПЕЦИФИКА */
+@supports (-webkit-appearance: none) {
+  .safari-only {
+    display: block;
+  }
+  
+  /* Safari button fix */
+  .safari-button-fix {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+  }
+  
+  /* Safari input fix */
+  .safari-input-fix {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+  }
+}
+
+/* 📱 iOS SAFARI СПЕЦИФИКА */
+@supports (-webkit-touch-callout: none) {
+  .ios-only {
+    display: block;
+  }
+  
+  /* Фиксы для iOS Safari */
+  .ios-input-fix {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+  
+  .ios-button-fix {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  
+  /* iOS viewport fix */
+  .ios-viewport-fix {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* 🤖 CHROME/WEBKIT СПЕЦИФИКА */
+@supports (-webkit-background-clip: text) {
+  .webkit-only {
+    display: block;
+  }
+  
+  /* Webkit scrollbar styling */
+  .webkit-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .webkit-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+  }
+  
+  .webkit-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  
+  .webkit-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+/* 🔧 FEATURE DETECTION FALLBACKS */
+
+/* Проверка поддержки CSS Grid */
+@supports not (display: grid) {
+  .no-grid-fallback {
+    display: table;
+    width: 100%;
+  }
+  
+  .no-grid-fallback > * {
+    display: table-cell;
+    vertical-align: top;
+  }
+}
+
+/* Проверка поддержки Flexbox */
+@supports not (display: flex) {
+  .no-flex-fallback {
+    display: table;
+  }
+  
+  .no-flex-fallback > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+/* Проверка поддержки CSS Custom Properties */
+@supports not (--css: variables) {
+  .no-variables-fallback {
+    color: #3b82f6 !important;
+    background-color: #ffffff !important;
+  }
+}
+
+/* 🎨 СТАРЫЕ БРАУЗЕРЫ - УПРОЩЕННЫЕ СТИЛИ */
+.legacy-browser-styles {
+  /* Упрощенные стили для IE8-9 */
+  background: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* 📝 PRINT СТИЛИ */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  /* Упрощенные стили для печати */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  .page-break {
+    page-break-before: always;
+  }
+  
+  .no-page-break {
+    page-break-inside: avoid;
+  }
+}
+
+/* 🔍 HIGH CONTRAST MODE */
+@media (prefers-contrast: high) {
+  .high-contrast-mode {
+    border: 2px solid;
+    background: #ffffff;
+    color: #000000;
+  }
+}
+
+/* 🎯 REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .respect-motion-preferences {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 🌙 FORCED COLORS MODE (Windows High Contrast) */
+@media (forced-colors: active) {
+  .forced-colors-mode {
+    border: 1px solid;
+    background: Canvas;
+    color: CanvasText;
+  }
+  
+  .forced-colors-button {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 1px solid ButtonText;
+  }
+  
+  .forced-colors-link {
+    color: LinkText;
+  }
+  
+  .forced-colors-link:visited {
+    color: VisitedText;
+  }
+}

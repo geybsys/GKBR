@@ -1,0 +1,424 @@
+/* performance.css - Оптимизированные стили для максимальной производительности */
+/* Путь: src/styles/performance.css */
+
+/* 🚀 КРИТИЧЕСКИЙ CSS ДЛЯ ПЕРВОЙ ЗАГРУЗКИ */
+.critical-above-fold {
+  /* Оптимизация для контента выше сгиба */
+  contain: layout style paint;
+  will-change: auto;
+}
+
+/* 🎯 ОПТИМИЗАЦИЯ РЕНДЕРИНГА */
+.optimize-rendering {
+  /* Включение аппаратного ускорения */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  
+  /* Оптимизация композитинга */
+  will-change: transform;
+  contain: layout style paint;
+}
+
+.optimize-animations {
+  /* Только композитные свойства для анимаций */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 📦 CONTAINMENT ДЛЯ ИЗОЛЯЦИИ */
+.container-layout {
+  contain: layout;
+}
+
+.container-style {
+  contain: style;
+}
+
+.container-paint {
+  contain: paint;
+}
+
+.container-size {
+  contain: size;
+}
+
+.container-all {
+  contain: layout style paint size;
+}
+
+/* 🎨 ЛЕНИВАЯ ЗАГРУЗКА ИЗОБРАЖЕНИЙ */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  background-color: #f3f4f6;
+  background-image: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%);
+  background-size: 200% 200%;
+  animation: shimmerPlaceholder 2s infinite;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+  background-image: none;
+  animation: none;
+}
+
+@keyframes shimmerPlaceholder {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 🔤 ОПТИМИЗАЦИЯ ШРИФТОВ */
+.font-optimized {
+  font-display: swap;
+  font-synthesis: none;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Предзагрузка критических шрифтов */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Inter Regular'), local('Inter-Regular'),
+       url('data:application/font-woff2;charset=utf-8;base64,...') format('woff2');
+}
+
+/* 📱 ОПТИМИЗАЦИЯ ДЛЯ МОБИЛЬНЫХ */
+.mobile-optimized {
+  /* Отключение hover эффектов на touch устройствах */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  /* Упрощение анимаций для touch устройств */
+  .animate-glow,
+  .animate-glowPulse,
+  .animate-shine {
+    animation: none;
+  }
+  
+  .animate-float {
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+  }
+}
+
+/* 🖱️ ОПТИМИЗАЦИЯ СКРОЛЛА */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  overflow-anchor: auto;
+  overscroll-behavior: contain;
+}
+
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.scroll-snap-item {
+  scroll-snap-align: start;
+}
+
+/* Виртуализация длинных списков */
+.virtualized-list {
+  overflow: auto;
+  contain: strict;
+}
+
+.virtualized-item {
+  contain: layout style paint;
+}
+
+/* 🎯 ОПТИМИЗАЦИЯ ИНТЕРАКТИВНОСТИ */
+.interactive-optimized {
+  /* Мгновенная обратная связь */
+  touch-action: manipulation;
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
+}
+
+.interactive-optimized:active {
+  transform: scale(0.98);
+}
+
+/* Оптимизация hover состояний */
+@media (hover: hover) {
+  .interactive-optimized:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* 🧩 МОДУЛЬНАЯ ЗАГРУЗКА CSS */
+.module-loading {
+  /* Скелетон для модулей */
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 🎪 CRITICAL RENDERING PATH */
+.above-the-fold {
+  /* Критические стили для видимой области */
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.below-the-fold {
+  /* Ленивые стили для невидимой области */
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
+}
+
+/* 🔧 DEBUGGING И PRODUCTION */
+.debug-performance {
+  /* Показываем композитные слои в dev режиме */
+  outline: 2px solid red;
+}
+
+.debug-performance::after {
+  content: 'Composite Layer';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+}
+
+/* 🎨 ТЁМНАЯ ТЕМА - ОПТИМИЗИРОВАННАЯ */
+.dark-theme-optimized {
+  color-scheme: dark;
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.dark-theme-optimized * {
+  border-color: #334155;
+}
+
+/* 🌈 УМЕНЬШЕНИЕ MOTION ДЛЯ ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 📐 ОПТИМИЗАЦИЯ LAYOUT */
+.layout-optimized {
+  /* Избегание layout thrashing */
+  position: relative;
+  box-sizing: border-box;
+}
+
+.layout-stable {
+  /* Стабильные размеры */
+  min-height: 0;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.no-layout-shift {
+  /* Предотвращение CLS */
+  aspect-ratio: attr(width) / attr(height);
+  object-fit: cover;
+}
+
+/* 🔄 ОПТИМИЗАЦИЯ REPAINT */
+.repaint-optimized {
+  /* Минимизация перерисовки */
+  isolation: isolate;
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* 📊 МЕТРИКИ ПРОИЗВОДИТЕЛЬНОСТИ */
+.measure-performance {
+  /* CSS для измерения производительности */
+  --start-time: 0;
+  --end-time: 0;
+}
+
+/* 🎯 GPU СЛОИ */
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.gpu-text {
+  /* Оптимизация текста для GPU */
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* 💾 MEMORY ОПТИМИЗАЦИЯ */
+.memory-efficient {
+  /* Эффективное использование памяти */
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+.memory-efficient img {
+  /* Ленивая загрузка изображений */
+  loading: lazy;
+  decoding: async;
+}
+
+/* 🔗 PRELOAD РЕСУРСОВ */
+.preload-next {
+  /* Предзагрузка следующих ресурсов */
+  link-preload: auto;
+}
+
+/* 📱 RESPONSIVE IMAGES */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  loading: lazy;
+  decoding: async;
+}
+
+.responsive-image-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+.responsive-image-container::before {
+  content: '';
+  display: block;
+  padding-bottom: 56.25%; /* 16:9 */
+}
+
+.responsive-image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 🎪 CRITICAL CSS INLINING */
+.critical-inline {
+  /* Критические стили для инлайнинга */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #374151;
+  background-color: #ffffff;
+}
+
+/* 🔧 UTILITY КЛАССЫ ДЛЯ ПРОИЗВОДИТЕЛЬНОСТИ */
+.will-change-transform { will-change: transform; }
+.will-change-opacity { will-change: opacity; }
+.will-change-scroll { will-change: scroll-position; }
+.will-change-auto { will-change: auto; }
+
+.contain-layout { contain: layout; }
+.contain-style { contain: style; }
+.contain-paint { contain: paint; }
+.contain-size { contain: size; }
+.contain-strict { contain: strict; }
+
+.composite-layer { transform: translateZ(0); }
+.gpu-accelerated { 
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.isolate { isolation: isolate; }
+
+/* 📈 PERFORMANCE MONITORING */
+.perf-mark::before {
+  content: '🚀';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* 🎯 PRODUCTION OPTIMIZATIONS */
+@media screen {
+  .print-hidden { display: none; }
+}
+
+@media print {
+  .screen-only { display: none; }
+  .no-print { display: none !important; }
+  
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* 🔋 BATTERY SAVING */
+@media (prefers-reduced-motion: reduce) {
+  .battery-saving * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 📱 CONNECTION AWARE */
+.slow-connection {
+  /* Упрощения для медленного соединения */
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.slow-connection .animate-glow,
+.slow-connection .animate-shine,
+.slow-connection .animate-shimmer {
+  animation: none;
+}
+
+/* 🎨 CRITICAL ABOVE THE FOLD */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  contain: layout style paint;
+}
+
+.navigation {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  contain: layout style;
+}
+
+.footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}

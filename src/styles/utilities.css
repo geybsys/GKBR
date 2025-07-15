@@ -1,0 +1,622 @@
+/* utilities.css - Дополнительные утилиты для финальной полировки */
+/* Путь: src/styles/utilities.css */
+
+/* 🎯 VISIBILITY UTILITIES */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* 🎨 CUSTOM SCROLLBAR UTILITIES */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* 🔧 LAYOUT UTILITIES */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-wide {
+  aspect-ratio: 21 / 9;
+}
+
+/* 📐 OBJECT UTILITIES */
+.object-contain {
+  object-fit: contain;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.object-fill {
+  object-fit: fill;
+}
+
+.object-scale-down {
+  object-fit: scale-down;
+}
+
+.object-none {
+  object-fit: none;
+}
+
+/* 🎭 BLEND MODE UTILITIES */
+.mix-normal {
+  mix-blend-mode: normal;
+}
+
+.mix-multiply {
+  mix-blend-mode: multiply;
+}
+
+.mix-screen {
+  mix-blend-mode: screen;
+}
+
+.mix-overlay {
+  mix-blend-mode: overlay;
+}
+
+.mix-darken {
+  mix-blend-mode: darken;
+}
+
+.mix-lighten {
+  mix-blend-mode: lighten;
+}
+
+/* 🎨 BACKDROP UTILITIES */
+.backdrop-blur-none {
+  backdrop-filter: blur(0);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+}
+
+.backdrop-blur-2xl {
+  backdrop-filter: blur(40px);
+}
+
+.backdrop-blur-3xl {
+  backdrop-filter: blur(64px);
+}
+
+/* 💫 FILTER UTILITIES */
+.filter-none {
+  filter: none;
+}
+
+.filter-blur-sm {
+  filter: blur(4px);
+}
+
+.filter-blur {
+  filter: blur(8px);
+}
+
+.filter-blur-lg {
+  filter: blur(16px);
+}
+
+.filter-brightness-50 {
+  filter: brightness(0.5);
+}
+
+.filter-brightness-75 {
+  filter: brightness(0.75);
+}
+
+.filter-brightness-100 {
+  filter: brightness(1);
+}
+
+.filter-brightness-125 {
+  filter: brightness(1.25);
+}
+
+.filter-brightness-150 {
+  filter: brightness(1.5);
+}
+
+.filter-contrast-50 {
+  filter: contrast(0.5);
+}
+
+.filter-contrast-75 {
+  filter: contrast(0.75);
+}
+
+.filter-contrast-100 {
+  filter: contrast(1);
+}
+
+.filter-contrast-125 {
+  filter: contrast(1.25);
+}
+
+.filter-contrast-150 {
+  filter: contrast(1.5);
+}
+
+.filter-grayscale {
+  filter: grayscale(100%);
+}
+
+.filter-grayscale-50 {
+  filter: grayscale(50%);
+}
+
+.filter-sepia {
+  filter: sepia(100%);
+}
+
+.filter-sepia-50 {
+  filter: sepia(50%);
+}
+
+/* 🎪 CUSTOM PREMIUM UTILITIES */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.neon-glow {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.box-glow {
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.3),
+    0 0 40px rgba(59, 130, 246, 0.2),
+    0 0 60px rgba(59, 130, 246, 0.1);
+}
+
+.accent-glow {
+  box-shadow: 
+    0 0 20px rgba(251, 191, 36, 0.3),
+    0 0 40px rgba(251, 191, 36, 0.2),
+    0 0 60px rgba(251, 191, 36, 0.1);
+}
+
+/* 🎵 INTERACTIVE UTILITIES */
+.interactive-scale {
+  transition: transform 0.2s ease;
+}
+
+.interactive-scale:hover {
+  transform: scale(1.05);
+}
+
+.interactive-scale:active {
+  transform: scale(0.95);
+}
+
+.interactive-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactive-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.interactive-press {
+  transition: transform 0.1s ease;
+}
+
+.interactive-press:active {
+  transform: scale(0.98);
+}
+
+/* 🎯 FOCUS UTILITIES */
+.focus-visible-custom:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.focus-ring {
+  transition: all 0.2s ease;
+}
+
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.focus-ring-accent:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
+}
+
+/* 📝 TEXT UTILITIES */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-clip {
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+/* 📐 SPACING UTILITIES */
+.space-between-1 > * + * {
+  margin-top: 0.25rem;
+}
+
+.space-between-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.space-between-3 > * + * {
+  margin-top: 0.75rem;
+}
+
+.space-between-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-between-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-between-8 > * + * {
+  margin-top: 2rem;
+}
+
+/* 🔄 TRANSFORM UTILITIES */
+.rotate-1 {
+  transform: rotate(1deg);
+}
+
+.rotate-2 {
+  transform: rotate(2deg);
+}
+
+.rotate-3 {
+  transform: rotate(3deg);
+}
+
+.rotate-6 {
+  transform: rotate(6deg);
+}
+
+.rotate-12 {
+  transform: rotate(12deg);
+}
+
+.-rotate-1 {
+  transform: rotate(-1deg);
+}
+
+.-rotate-2 {
+  transform: rotate(-2deg);
+}
+
+.-rotate-3 {
+  transform: rotate(-3deg);
+}
+
+.-rotate-6 {
+  transform: rotate(-6deg);
+}
+
+.-rotate-12 {
+  transform: rotate(-12deg);
+}
+
+.skew-x-1 {
+  transform: skewX(1deg);
+}
+
+.skew-x-2 {
+  transform: skewX(2deg);
+}
+
+.skew-x-3 {
+  transform: skewX(3deg);
+}
+
+.skew-y-1 {
+  transform: skewY(1deg);
+}
+
+.skew-y-2 {
+  transform: skewY(2deg);
+}
+
+.skew-y-3 {
+  transform: skewY(3deg);
+}
+
+/* 🎪 ANIMATION STATE UTILITIES */
+.animate-on-hover {
+  animation-play-state: paused;
+}
+
+.animate-on-hover:hover {
+  animation-play-state: running;
+}
+
+.animate-on-scroll {
+  animation-play-state: paused;
+}
+
+.animate-on-scroll.in-view {
+  animation-play-state: running;
+}
+
+/* 🔧 DEVELOPMENT UTILITIES */
+.debug-outline {
+  outline: 2px solid red !important;
+}
+
+.debug-bg {
+  background: rgba(255, 0, 0, 0.1) !important;
+}
+
+.debug-grid {
+  background-image: 
+    linear-gradient(rgba(255, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 🎯 PERFORMANCE UTILITIES */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.will-change-scroll {
+  will-change: scroll-position;
+}
+
+.will-change-contents {
+  will-change: contents;
+}
+
+.will-change-auto {
+  will-change: auto;
+}
+
+.contain-none {
+  contain: none;
+}
+
+.contain-size {
+  contain: size;
+}
+
+.contain-layout {
+  contain: layout;
+}
+
+.contain-style {
+  contain: style;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+.contain-strict {
+  contain: strict;
+}
+
+.contain-content {
+  contain: content;
+}
+
+/* 🎨 BRAND SPECIFIC UTILITIES */
+.brand-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #fbbf24 50%, #2563eb 100%);
+}
+
+.brand-text-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #fbbf24 50%, #2563eb 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.corporate-shadow {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.premium-shadow {
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.luxury-shadow {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* 📱 MOBILE SPECIFIC UTILITIES */
+@media (max-width: 768px) {
+  .mobile-full-width {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+  
+  .mobile-safe-area {
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  .mobile-touch-friendly {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* 🖥️ DESKTOP SPECIFIC UTILITIES */
+@media (min-width: 1024px) {
+  .desktop-hover-effects:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+  }
+  
+  .desktop-cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .desktop-select-none {
+    user-select: none;
+  }
+}
+
+/* 🎭 THEME UTILITIES */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.light-mode-only {
+  display: block;
+}
+
+.dark-mode-only {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .light-mode-only {
+    display: none;
+  }
+  
+  .dark-mode-only {
+    display: block;
+  }
+}
+
+/* 🔧 UTILITY COMBINATIONS */
+.card-premium {
+  @apply glass-effect rounded-xl p-6 interactive-lift theme-transition;
+}
+
+.button-premium {
+  @apply brand-gradient text-white font-semibold py-3 px-6 rounded-lg interactive-scale focus-ring-accent theme-transition;
+}
+
+.input-premium {
+  @apply glass-effect border-0 rounded-lg px-4 py-3 focus-ring theme-transition;
+}
+
+.text-premium {
+  @apply brand-text-gradient font-bold;
+}

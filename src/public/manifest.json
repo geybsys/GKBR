@@ -1,0 +1,104 @@
+{
+  "name": "GKBR Platform - Премиальная система обучения",
+  "short_name": "GKBR Platform",
+  "description": "Корпоративная платформа обучения и мотивации сотрудников GKBR",
+  "version": "1.0.0",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f23",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ru-RU",
+  "categories": ["education", "business", "productivity"],
+  
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png", 
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Панель",
+      "description": "Перейти к главной панели",
+      "url": "/dashboard",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Обучение",
+      "short_name": "Модули",
+      "description": "Учебные модули",
+      "url": "/modules",
+      "icons": [
+        {
+          "src": "/icon-192.png", 
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "type": "image/png",
+      "sizes": "1280x720",
+      "form_factor": "wide",
+      "label": "GKBR Platform Desktop View"
+    },
+    {
+      "src": "/screenshot-narrow.png", 
+      "type": "image/png",
+      "sizes": "750x1334",
+      "form_factor": "narrow",
+      "label": "GKBR Platform Mobile View"
+    }
+  ],
+  
+  "related_applications": [],
+  "prefer_related_applications": false,
+  
+  "splash_pages": null,
+  
+  "protocol_handlers": [],
+  
+  "file_handlers": [],
+  
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["image/*", ".pdf", ".doc", ".docx"]
+        }
+      ]
+    }
+  }
+}

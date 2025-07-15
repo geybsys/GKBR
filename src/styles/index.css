@@ -1,0 +1,126 @@
+/* src/styles/index.css - Главный файл импорта всех стилей GKBR Platform */
+
+/* 🎯 БАЗОВЫЕ СТИЛИ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* 🌈 TAILWIND CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🎨 КАСТОМНЫЕ СТИЛИ (если файлы существуют, они будут импортированы) */
+/* @import './variables.css'; */
+/* @import './main.css'; */
+/* @import './animations.css'; */
+/* @import './performance.css'; */
+/* @import './responsive.css'; */
+
+/* 🎯 БАЗОВЫЕ ПЕРЕОПРЕДЕЛЕНИЯ */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #0f0f23;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+  
+  #root {
+    min-height: 100vh;
+  }
+}
+
+/* 🎨 ПРЕМИАЛЬНЫЕ КОМПОНЕНТЫ */
+@layer components {
+  /* Стеклянный эффект */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Градиентные фоны */
+  .gradient-bg-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .gradient-bg-accent {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  }
+  
+  .gradient-bg-corporate {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  }
+  
+  /* Премиальные кнопки */
+  .gkbr-button {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95;
+  }
+  
+  /* Премиальные карточки */
+  .gkbr-card {
+    @apply bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-opacity-15;
+  }
+  
+  /* Премиальные инпуты */
+  .gkbr-input {
+    @apply w-full bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 rounded-xl px-4 py-3 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300;
+  }
+}
+
+/* 🎭 АНИМАЦИИ */
+@layer utilities {
+  /* Появление */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Пульсация */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+    }
+  }
+  
+  /* Масштабирование при наведении */
+  .hover-scale {
+    @apply transform transition-transform duration-300 hover:scale-105 active:scale-95;
+  }
+  
+  /* Плавная прокрутка */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
