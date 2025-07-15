@@ -1,0 +1,550 @@
+/* main.css - Премиальные стили для GKBR Platform */
+/* Путь: src/styles/main.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* 🎨 ПЕРЕМЕННЫЕ CSS ДЛЯ ПРЕМИАЛЬНОГО ДИЗАЙНА */
+:root {
+  /* Основные цвета */
+  --gkbr-primary: #3b82f6;
+  --gkbr-primary-dark: #1e40af;
+  --gkbr-secondary: #64748b;
+  --gkbr-accent: #8b5cf6;
+  --gkbr-accent-light: #a78bfa;
+  
+  /* Семантические цвета */
+  --gkbr-success: #10b981;
+  --gkbr-warning: #f59e0b;
+  --gkbr-error: #ef4444;
+  --gkbr-info: #06b6d4;
+  
+  /* Фоновые цвета */
+  --gkbr-bg-primary: #0f172a;
+  --gkbr-bg-secondary: #1e293b;
+  --gkbr-bg-tertiary: #334155;
+  
+  /* Стеклянные эффекты */
+  --gkbr-glass-bg: rgba(255, 255, 255, 0.1);
+  --gkbr-glass-border: rgba(255, 255, 255, 0.2);
+  --gkbr-glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  
+  /* Анимации */
+  --gkbr-transition-fast: 150ms ease-out;
+  --gkbr-transition-normal: 300ms ease-out;
+  --gkbr-transition-slow: 500ms ease-out;
+  
+  /* Размеры */
+  --gkbr-border-radius: 0.75rem;
+  --gkbr-border-radius-lg: 1rem;
+  --gkbr-border-radius-xl: 1.5rem;
+  
+  /* Shadows */
+  --gkbr-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --gkbr-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --gkbr-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --gkbr-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --gkbr-shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Темная тема (по умолчанию) */
+[data-theme="corporate"] {
+  --gkbr-primary: #3b82f6;
+  --gkbr-accent: #8b5cf6;
+  --gkbr-bg-primary: #0f172a;
+}
+
+[data-theme="ocean"] {
+  --gkbr-primary: #06b6d4;
+  --gkbr-accent: #0891b2;
+  --gkbr-bg-primary: #164e63;
+}
+
+[data-theme="sunset"] {
+  --gkbr-primary: #f97316;
+  --gkbr-accent: #ea580c;
+  --gkbr-bg-primary: #9a3412;
+}
+
+[data-theme="forest"] {
+  --gkbr-primary: #10b981;
+  --gkbr-accent: #059669;
+  --gkbr-bg-primary: #065f46;
+}
+
+[data-theme="galaxy"] {
+  --gkbr-primary: #8b5cf6;
+  --gkbr-accent: #7c3aed;
+  --gkbr-bg-primary: #581c87;
+}
+
+/* 🌟 БАЗОВЫЕ СТИЛИ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--gkbr-bg-primary);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Отключение анимаций для людей с ограниченными возможностями */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 🎯 ПРЕМИАЛЬНЫЕ КОМПОНЕНТЫ */
+
+/* Стеклянные карточки */
+.gkbr-glass {
+  background: var(--gkbr-glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--gkbr-glass-border);
+  border-radius: var(--gkbr-border-radius-lg);
+  box-shadow: var(--gkbr-glass-shadow);
+}
+
+.gkbr-glass-intense {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+/* Премиальные кнопки */
+.gkbr-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: var(--gkbr-border-radius);
+  transition: all var(--gkbr-transition-normal);
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+  user-select: none;
+}
+
+.gkbr-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.gkbr-btn-primary {
+  background: linear-gradient(135deg, var(--gkbr-primary), var(--gkbr-primary-dark));
+  color: white;
+  box-shadow: var(--gkbr-shadow-md);
+}
+
+.gkbr-btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--gkbr-shadow-lg);
+}
+
+.gkbr-btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.gkbr-btn-accent {
+  background: linear-gradient(135deg, var(--gkbr-accent), var(--gkbr-accent-light));
+  color: white;
+}
+
+.gkbr-btn-ghost {
+  background: var(--gkbr-glass-bg);
+  color: white;
+  border: 1px solid var(--gkbr-glass-border);
+  backdrop-filter: blur(10px);
+}
+
+/* Эффект свечения */
+.gkbr-glow {
+  box-shadow: 0 0 20px var(--gkbr-primary);
+}
+
+.gkbr-glow-accent {
+  box-shadow: 0 0 20px var(--gkbr-accent);
+}
+
+.gkbr-glow-success {
+  box-shadow: 0 0 20px var(--gkbr-success);
+}
+
+/* 🎭 АНИМАЦИИ */
+
+/* Анимация появления */
+@keyframes gkbr-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gkbr-fade-in {
+  animation: gkbr-fade-in 0.6s ease-out;
+}
+
+/* Анимация масштабирования */
+@keyframes gkbr-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gkbr-scale-in {
+  animation: gkbr-scale-in 0.4s ease-out;
+}
+
+/* Анимация скольжения */
+@keyframes gkbr-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gkbr-slide-up {
+  animation: gkbr-slide-up 0.5s ease-out;
+}
+
+/* Анимация вращения */
+@keyframes gkbr-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gkbr-spin {
+  animation: gkbr-spin 1s linear infinite;
+}
+
+/* Анимация пульсации */
+@keyframes gkbr-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.gkbr-pulse {
+  animation: gkbr-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Анимация покачивания */
+@keyframes gkbr-wiggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.gkbr-wiggle {
+  animation: gkbr-wiggle 1s ease-in-out infinite;
+}
+
+/* Анимация подпрыгивания */
+@keyframes gkbr-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.gkbr-bounce {
+  animation: gkbr-bounce 1s ease-in-out;
+}
+
+/* Анимация мерцания */
+@keyframes gkbr-shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.gkbr-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background-size: 200px 100%;
+  animation: gkbr-shimmer 2s infinite;
+}
+
+/* 🎯 ИНТЕРАКТИВНЫЕ СОСТОЯНИЯ */
+
+/* Hover эффекты */
+.gkbr-hover-lift {
+  transition: transform var(--gkbr-transition-normal);
+}
+
+.gkbr-hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.gkbr-hover-scale {
+  transition: transform var(--gkbr-transition-normal);
+}
+
+.gkbr-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.gkbr-hover-glow {
+  transition: box-shadow var(--gkbr-transition-normal);
+}
+
+.gkbr-hover-glow:hover {
+  box-shadow: var(--gkbr-shadow-glow);
+}
+
+/* Focus состояния */
+.gkbr-focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--gkbr-primary);
+  ring-opacity: 0.5;
+  ring-offset: 2px;
+  ring-offset-color: var(--gkbr-bg-primary);
+}
+
+/* Active состояния */
+.gkbr-active-scale:active {
+  transform: scale(0.95);
+}
+
+/* 📱 АДАПТИВНОСТЬ */
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+  .gkbr-mobile-full {
+    width: 100%;
+  }
+  
+  .gkbr-mobile-stack {
+    flex-direction: column;
+  }
+  
+  .gkbr-mobile-center {
+    text-align: center;
+  }
+}
+
+/* Планшеты */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .gkbr-tablet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Десктоп */
+@media (min-width: 1024px) {
+  .gkbr-desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* 🎨 УТИЛИТАРНЫЕ КЛАССЫ */
+
+/* Градиенты */
+.gkbr-gradient-primary {
+  background: linear-gradient(135deg, var(--gkbr-primary), var(--gkbr-primary-dark));
+}
+
+.gkbr-gradient-accent {
+  background: linear-gradient(135deg, var(--gkbr-accent), var(--gkbr-accent-light));
+}
+
+.gkbr-gradient-success {
+  background: linear-gradient(135deg, var(--gkbr-success), #059669);
+}
+
+.gkbr-gradient-text {
+  background: linear-gradient(135deg, var(--gkbr-primary), var(--gkbr-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Размеры и отступы */
+.gkbr-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gkbr-section {
+  padding: 4rem 0;
+}
+
+.gkbr-card-spacing {
+  padding: 1.5rem;
+}
+
+/* Типографика */
+.gkbr-heading {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.gkbr-text-gradient {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gkbr-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gkbr-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gkbr-primary-dark);
+}
+
+/* 🔧 ДЕБАГ И РАЗРАБОТКА */
+.gkbr-debug {
+  border: 2px dashed #ff0000;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.gkbr-debug::before {
+  content: 'DEBUG';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ff0000;
+  color: white;
+  padding: 2px 4px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* 🎪 СПЕЦИАЛЬНЫЕ ЭФФЕКТЫ */
+
+/* Загрузочный экран */
+.gkbr-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gkbr-bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Частицы (будет управляться JavaScript) */
+.gkbr-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Прелоадер */
+.gkbr-preloader {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--gkbr-primary);
+  animation: gkbr-spin 1s ease-in-out infinite;
+}
+
+/* 🎨 ГОТОВЫЕ КОМПОЗИЦИИ */
+
+/* Премиальная карточка */
+.gkbr-premium-card {
+  @apply gkbr-glass gkbr-card-spacing gkbr-hover-lift;
+  border: 1px solid var(--gkbr-accent);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+/* Премиальная кнопка */
+.gkbr-premium-button {
+  @apply gkbr-btn gkbr-gradient-accent gkbr-hover-glow gkbr-active-scale;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Премиальный заголовок */
+.gkbr-premium-heading {
+  @apply gkbr-heading gkbr-text-gradient;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 🎯 КОНЕЦ ФАЙЛА */
+/* Всего создано: 300+ стилей для премиального UI */
